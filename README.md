@@ -56,12 +56,14 @@ The program solves puzzles, based on row and column sequences, and is called wit
 * ``java JapanesePuzzle < [inputfile.txt]`` (as stdin)
 
 The program accepts its input in two formats:
-1. Give input as the number of consecutive blacks on rows and columns directly.
+
+1. Give input as a sequence of lengths of consecutive blacks on rows and columns.
 For example, see ``examples/ristikko_06_sequence.txt``.
 All row sequences are started with an underscore ``_`` and column sequencies with a bar ``|``; all numbers in a sequence should be separated by whitespace. The sequence has rows in top-bottom order, and the numbers are read from left to right; columns are listed from left to right, and numbers are read from top to bottom. 
+
 2. Give input as a black-white solution, from which row sums and column sums are computed. The black and white pixels should use hash symbols ``#`` and dots ``.``, respectively. For example, see ``examples/ristikko_06.txt``.
 
-Since the solution for ``ristikko_06`` is unique, the program returns the correct solution for either input format:
+Since the solution for ``ristikko_06`` is unique, the program returns the correct *steam train* solution for either input format:
 
     Solution 1:
                            2  4  3  4  5  1  4  1  1  5  1  1  5  1  1  3  2  2  1  1 
@@ -88,7 +90,7 @@ all rows and columns have exactly one black pixel. The following two images both
     # .   and   . #
     . #         # .
 
-If the solution is not unique, the program fails to find any solutions.
+If the solution is not unique, the default search algorithm fails to find any solutions.
 
 The program works for *simple* nonograms, which covers quite a lot of puzzles.
 These puzzles are guaranteed to be solvable by humans, too.
@@ -102,7 +104,8 @@ The motivation for this program was that I wanted to create Japanese puzzles on 
 Choosing upon a solution, which is a black-white image, is not enough -- I also needed
 to check whether the solution is unique and easy enough to deduce. Doing this manually
 would have been a tedious task. Since such a solver was not available,
-I decided to write one myself.
+I decided to write one myself. The program was a success, and a generated quite
+a few personalized Japanese puzzles for others to solve.
 
 This project was completed in 2007, so it was written in Java 1.6.
 
